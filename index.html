@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171512">
+  <title>عبق العطور — عطور تترك أثراً</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="عبق العطور، الصفحة الرئيسية">
+      <span class="brand-mark">ع</span><span>عبق <b>العطور</b><small>حكاية تبدأ برائحة</small></span>
+    </a>
+    <nav aria-label="التنقل الرئيسي">
+      <a href="#home">الرئيسية</a><a href="#shop">المجموعة</a><a href="#about">حكايتنا</a>
+    </nav>
+    <div class="head-actions">
+      <button class="icon-btn" id="adminOpen" aria-label="لوحة الإدارة" title="لوحة الإدارة">⌘</button>
+      <button class="cart-trigger" id="cartOpen" aria-label="فتح السلة">السلة <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><i></i> فنّ يُصاغ من العطر</p>
+        <h1>اترك أثراً<br><em>لا يُنسى.</em></h1>
+        <p class="hero-text">عطور مختارة بعناية، تجمع بين أصالة الشرق وأناقة التفاصيل. لأن حضورك يستحق رائحة تحكي عنك.</p>
+        <a class="button button-gold" href="#shop">اكتشف مجموعتنا <span>←</span></a>
+        <div class="hero-note"><span>✳</span> تركيبات أصلية · شحن مجاني للطلبات</div>
+      </div>
+      <div class="hero-art" aria-label="زجاجة عطر بتصميم زخرفي">
+        <div class="halo"></div><div class="hero-stamp">EAU<br><small>DE PARFUM</small><br>✦</div>
+        <div class="hero-bottle"><div class="b-cap"></div><div class="b-neck"></div><div class="b-body"><span class="b-label">عبق<br><small>عطر فاخر</small></span></div></div>
+        <span class="art-caption">صُنع ليبقى</span>
+        <span class="art-side">EAU DE PARFUM · 75 ML</span>
+      </div>
+    </section>
+
+    <section class="trust-row" id="about">
+      <div><span>✧</span><p><b>تركيبات أصلية</b><small>منتقاة من أجود المكونات</small></p></div>
+      <div><span>◇</span><p><b>عناية بالتفاصيل</b><small>تغليف يليق بهديتك</small></p></div>
+      <div><span>↗</span><p><b>توصيل لكل مكان</b><small>تجربة سلسة حتى بابك</small></p></div>
+    </section>
+
+    <section class="shop section-wrap" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">تعرّف على اختياراتنا</p><h2>عطور <em>تُشبهك</em></h2></div>
+        <p class="section-aside">لكل رائحة حكاية، ولكل حكاية بداية.</p>
+      </div>
+      <div class="shop-tools">
+        <div class="filters" id="filters" aria-label="تصفية حسب النوع">
+          <button class="filter active" data-filter="الكل">الكل</button>
+          <button class="filter" data-filter="نسائي">نسائي</button>
+          <button class="filter" data-filter="رجالي">رجالي</button>
+          <button class="filter" data-filter="مشترك">مشترك</button>
+        </div>
+        <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="ابحث عن عطر..." aria-label="ابحث عن عطر"></label>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state hidden" id="emptyProducts">لا توجد عطور تطابق بحثك.</div>
+    </section>
+
+    <section class="quote-band"><span>“</span><p>العطر هو الإكسسوار الذي لا يُرى،<br>لكن لا يمكن نسيانه.</p><small>— حكاية عبق</small></section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">ع</span><span>عبق <b>العطور</b><small>حكاية تبدأ برائحة</small></span></a><p>صُمم بعناية ليترك أثراً.</p><span>© <span id="year"></span> عبق العطور</span></footer>
+
+  <div class="overlay hidden" id="cartOverlay"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="سلة المشتريات" aria-hidden="true">
+    <div class="drawer-head"><div><p class="eyebrow">اختياراتك</p><h2>سلة التسوق</h2></div><button class="close-btn" data-close-cart aria-label="إغلاق">×</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-bottom"><div class="subtotal"><span>المجموع</span><b id="cartTotal">0 ر.س</b></div><p>الشحن مجاني على جميع الطلبات</p><button class="button button-gold full" id="checkoutOpen">إتمام الطلب <span>←</span></button></div>
+  </aside>
+
+  <div class="modal-wrap hidden" id="modalWrap" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card"><button class="close-btn modal-close" data-close-modal aria-label="إغلاق">×</button><div id="modalContent"></div></div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
